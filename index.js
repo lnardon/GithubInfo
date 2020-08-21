@@ -12,7 +12,10 @@
 
   response.forEach((event) => {
     let div = document.createElement("div");
-    div.innerText = event.type;
+    div.innerHTML = `<sl-card class="card-basic">
+                      ${event.type} </br>
+                      ${event.created_at}
+                    </sl-card>`;
     let parent = document.getElementById("events");
     parent.appendChild(div);
   });
