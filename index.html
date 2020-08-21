@@ -23,8 +23,20 @@
       <div class="userHeader">
         <img src="" alt="Profile Pic" id="profilePic" />
         <h2 id="userName"></h2>
-        <div id="events"></div>
       </div>
+      <sl-tab-group>
+        <sl-tab slot="nav" panel="Events">Events</sl-tab>
+        <sl-tab slot="nav" panel="Repos">Repos</sl-tab>
+        <sl-tab slot="nav" panel="Info">Info</sl-tab>
+
+        <sl-tab-panel name="Events">
+          <div id="events"></div>
+        </sl-tab-panel>
+        <sl-tab-panel name="Repos">
+          <div id="repos"></div>
+        </sl-tab-panel>
+        <sl-tab-panel name="Info"> </sl-tab-panel>
+      </sl-tab-group>
     </div>
   </body>
 </html>
