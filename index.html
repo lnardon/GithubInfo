@@ -6,6 +6,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no"
     />
+    <link
+      rel="shortcut icon"
+      href="https://image.flaticon.com/icons/svg/179/179323.svg"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="styles.css" />
     <script src="./index.js"></script>
     <link
@@ -20,7 +25,7 @@
       type="module"
       src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.14/dist/shoelace/shoelace.esm.js"
     ></script>
-    <title>Github Gamification</title>
+    <title>Github Stats</title>
   </head>
   <body>
     <div class="mainContainer">
@@ -46,7 +51,9 @@
         <sl-tab-panel name="Repos">
           <div id="repos"></div>
         </sl-tab-panel>
-        <sl-tab-panel name="Info"> </sl-tab-panel>
+        <sl-tab-panel name="Info">
+          <div id="infos"></div>
+        </sl-tab-panel>
       </sl-tab-group>
     </div>
   </body>

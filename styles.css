@@ -6,6 +6,7 @@
 body {
   width: 100%;
   font-family: "Baloo Tamma 2", cursive;
+  background-color: rgba(0, 141, 122, 0.1);
 }
 
 .searchField {
@@ -22,7 +23,6 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: rgba(0, 141, 122, 0.1);
 }
 
 .userHeader {
@@ -33,7 +33,7 @@ body {
 }
 
 #profilePic {
-  width: 90%;
+  max-width: 90%;
 }
 
 .eventCardDiv {

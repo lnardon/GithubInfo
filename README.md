@@ -13,3 +13,4 @@ I decided to use this project also to learn everything about Saas
 - Saas
 - Async/Await
 - Github API
+- Shoelace Web Components

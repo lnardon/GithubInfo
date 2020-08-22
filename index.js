@@ -1,9 +1,22 @@
 const searchProfile = async () => {
-  let eventsSection = document.getElementById("events");
+  let infosSection = document.getElementById("infos");
   let username = document.getElementById("user").value;
 
   let rawData = await fetch(`https://api.github.com/users/${username}`);
   let response = await rawData.json();
+  console.log(response);
+  infosSection.innerHTML = "";
+  let div = document.createElement("div");
+  div.classList.add("eventCardDiv");
+  div.innerHTML = `<sl-card class="card-basic repoCard" style="width: 300px">
+                      <div style="display: flex; align-items: center; cursor: pointer">
+                        Bio: ${response.bio}</br>
+                        Followers: ${response.followers}</br>
+                        Public Repos: ${response.public_repos}</br>
+                        Location: ${response.location}
+                      </div>
+                    </sl-card>`;
+  infosSection.appendChild(div);
 
   document.getElementById("profilePic").src = response.avatar_url;
   document.getElementById("userName").innerText = response.name;
@@ -11,8 +24,9 @@ const searchProfile = async () => {
   rawData = await fetch(
     `https://api.github.com/users/${username}/events/public`
   );
+  let eventsSection = document.getElementById("events");
   response = await rawData.json();
-  console.log(response);
+  // console.log(response);
 
   eventsSection.innerHTML = "";
   response.forEach((event) => {
@@ -33,7 +47,7 @@ const searchProfile = async () => {
 
   rawData = await fetch(`https://api.github.com/users/${username}/repos`);
   response = await rawData.json();
-  console.log(response);
+  // console.log(response);
 
   let reposSection = document.getElementById("repos");
   reposSection.innerHTML = "";
