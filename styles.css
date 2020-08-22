@@ -25,6 +25,17 @@ body {
   background-color: rgba(0, 141, 122, 0.1);
 }
 
+.userHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+#profilePic {
+  width: 90%;
+}
+
 .eventCardDiv {
   display: flex;
   align-items: center;

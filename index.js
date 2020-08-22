@@ -1,4 +1,5 @@
 const searchProfile = async () => {
+  let eventsSection = document.getElementById("events");
   let username = document.getElementById("user").value;
 
   let rawData = await fetch(`https://api.github.com/users/${username}`);
@@ -7,10 +8,13 @@ const searchProfile = async () => {
   document.getElementById("profilePic").src = response.avatar_url;
   document.getElementById("userName").innerText = response.name;
 
-  rawData = await fetch("https://api.github.com/users/lnardon/events/public");
+  rawData = await fetch(
+    `https://api.github.com/users/${username}/events/public`
+  );
   response = await rawData.json();
   console.log(response);
 
+  eventsSection.innerHTML = "";
   response.forEach((event) => {
     let div = document.createElement("div");
     div.classList.add("eventCardDiv");
@@ -24,14 +28,15 @@ const searchProfile = async () => {
                         ${event.created_at}
                       </div>
                     </sl-card>`;
-    let parent = document.getElementById("events");
-    parent.appendChild(div);
+    eventsSection.appendChild(div);
   });
 
   rawData = await fetch(`https://api.github.com/users/${username}/repos`);
   response = await rawData.json();
   console.log(response);
 
+  let reposSection = document.getElementById("repos");
+  reposSection.innerHTML = "";
   response.forEach((repo) => {
     let div = document.createElement("div");
     div.classList.add("eventCardDiv");
@@ -45,7 +50,6 @@ const searchProfile = async () => {
                                      ${repo.created_at}
                                    </div>
                                  </sl-card>`;
-    let parent = document.getElementById("repos");
-    parent.appendChild(div);
+    reposSection.appendChild(div);
   });
 };
