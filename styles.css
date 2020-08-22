@@ -8,6 +8,15 @@ body {
   font-family: "Baloo Tamma 2", cursive;
 }
 
+.searchField {
+  width: 90%;
+  margin: 1rem 0rem 0.5rem 0rem;
+}
+
+.searchBtn {
+  margin-bottom: 2rem;
+}
+
 .mainContainer {
   display: flex;
   flex-direction: column;

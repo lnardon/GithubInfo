@@ -1,5 +1,7 @@
-(async () => {
-  let rawData = await fetch("https://api.github.com/users/lnardon");
+const searchProfile = async () => {
+  let username = document.getElementById("user").value;
+
+  let rawData = await fetch(`https://api.github.com/users/${username}`);
   let response = await rawData.json();
 
   document.getElementById("profilePic").src = response.avatar_url;
@@ -17,6 +19,7 @@
                         <div>
                           <img src="https://wac-cdn.atlassian.com/dam/jcr:8da54c66-2109-41df-af77-b575b30e2edc/Git@2x.png?cdnVersion=1032" style="height:25px; margin-right: 1rem"/>
                         </div>
+                        ${event.repo.name}</br>
                         ${event.type} </br>
                         ${event.created_at}
                       </div>
@@ -25,7 +28,7 @@
     parent.appendChild(div);
   });
 
-  rawData = await fetch("https://api.github.com/users/lnardon/repos");
+  rawData = await fetch(`https://api.github.com/users/${username}/repos`);
   response = await rawData.json();
   console.log(response);
 
@@ -45,4 +48,4 @@
     let parent = document.getElementById("repos");
     parent.appendChild(div);
   });
-})();
+};
