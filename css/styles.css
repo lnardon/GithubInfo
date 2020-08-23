@@ -1,0 +1,44 @@
+/* * {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: "Baloo Tamma 2", cursive;
+  background-color: rgba(0, 141, 122, 0.1);
+}
+
+.searchField {
+  width: 90%;
+  margin: 1rem 0rem 0.5rem 0rem;
+}
+
+.searchBtn {
+  margin-bottom: 2rem;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.userHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+#profilePic {
+  max-width: 90%;
+}
+
+.eventCardDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+} */
