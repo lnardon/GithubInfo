@@ -14,3 +14,4 @@ I decided to use this project also to learn everything about Saas
 - Async/Await
 - Github API
 - Shoelace Web Components
+- DOM manipulation with Javascript
