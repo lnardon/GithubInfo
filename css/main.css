@@ -7,15 +7,22 @@ body {
   width: 100%;
   font-family: "Baloo Tamma 2", cursive;
   background-color: rgba(0, 141, 122, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchContainer {
+  display: flex;
 }
 
 .searchField {
   width: 90%;
-  margin: 1rem 0rem 0.5rem 0rem;
+  margin: 1rem 1rem 0.5rem 0rem;
 }
 
 .searchBtn {
-  margin-bottom: 2rem;
+  margin: 1rem 0rem 2rem 0rem;
 }
 
 .mainContainer {
@@ -24,12 +31,13 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 100%;
+  max-width: 500px;
 }
 
 .userHeader {
@@ -38,15 +46,16 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 90%;
 }
 
 #profilePic {
+  display: none;
   max-width: 90%;
 }
 
@@ -55,11 +64,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-bottom: 0.5rem;
 }
 
@@ -69,10 +78,32 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.eventCardTitle {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.eventType {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: #212121;
+  margin-bottom: 0.25rem;
+}
+
+.dateLabel {
+  font-weight: 300;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  color: #999999;
 }
 /*# sourceMappingURL=main.css.map */

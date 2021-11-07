@@ -8,7 +8,7 @@
     />
     <link
       rel="shortcut icon"
-      href="https://image.flaticon.com/icons/svg/179/179323.svg"
+      href="https://wac-cdn.atlassian.com/dam/jcr:8da54c66-2109-41df-af77-b575b30e2edc/Git@2x.png?cdnVersion=1032"
       type="image/x-icon"
     />
     <link rel="stylesheet" href="./css/main.css" />
@@ -29,13 +29,18 @@
   </head>
   <body>
     <div class="mainContainer">
-      <sl-input
-        class="searchField"
-        placeholder="Github Username"
-        id="user"
-        clearable
-      ></sl-input>
-      <sl-button class="searchBtn" onclick="searchProfile()">Search</sl-button>
+      <div class="searchContainer">
+        <sl-input
+          class="searchField"
+          placeholder="Github Username"
+          id="user"
+          clearable
+        ></sl-input>
+        <sl-button class="searchBtn" onclick="searchProfile()"
+          >Search</sl-button
+        >
+      </div>
+
       <div class="userHeader">
         <img src="" alt="Profile Pic" id="profilePic" />
         <h2 id="userName"></h2>
@@ -44,6 +49,7 @@
         <sl-tab slot="nav" panel="Events">Events</sl-tab>
         <sl-tab slot="nav" panel="Repos">Repos</sl-tab>
         <sl-tab slot="nav" panel="Info">Info</sl-tab>
+        <sl-tab slot="nav" panel="Followers">Followers</sl-tab>
 
         <sl-tab-panel name="Events">
           <div id="events"></div>
@@ -53,6 +59,9 @@
         </sl-tab-panel>
         <sl-tab-panel name="Info">
           <div id="infos"></div>
+        </sl-tab-panel>
+        <sl-tab-panel name="Followers">
+          <div id="Followers"></div>
         </sl-tab-panel>
       </sl-tab-group>
     </div>

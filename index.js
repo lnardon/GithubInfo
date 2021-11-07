@@ -18,7 +18,11 @@ const searchProfile = async () => {
                     </sl-card>`;
   infosSection.appendChild(div);
 
-  document.getElementById("profilePic").src = response.avatar_url;
+  if (response.avatar_url) {
+    const pic = document.getElementById("profilePic");
+    pic.src = response.avatar_url;
+    pic.style.display = "block";
+  }
   document.getElementById("userName").innerText = response.name;
 
   rawData = await fetch(
@@ -26,7 +30,6 @@ const searchProfile = async () => {
   );
   let eventsSection = document.getElementById("events");
   response = await rawData.json();
-  // console.log(response);
 
   eventsSection.innerHTML = "";
   response.forEach((event) => {
@@ -35,16 +38,18 @@ const searchProfile = async () => {
     let reponame = auxreponame[auxreponame.length - 1];
     div.classList.add("eventCardDiv");
     div.innerHTML = `<sl-card class="card-basic" style="width: 300px">
-                      <div style="display: flex; align-items: center;">
+                      <div style="display: flex; flex-direction: column">
                         <div>
                           <img src="https://wac-cdn.atlassian.com/dam/jcr:8da54c66-2109-41df-af77-b575b30e2edc/Git@2x.png?cdnVersion=1032" style="height:25px; margin-right: 1rem"/>
                         </div>
                         <div class="eventCardTextDiv">
-                          <h3>
+                          <h3 class="eventCardTitle">
                             ${reponame}
                           </h3>
-                          ${event.type} </br>
-                          ${event.created_at}
+                          <h4 class="eventType">${event.type}</h4>
+                          <h5 class="dateLabel">${new Date(
+                            Date.parse(event.created_at)
+                          )}</h5>
                         </div>
                       </div>
                     </sl-card>`;
@@ -62,13 +67,15 @@ const searchProfile = async () => {
     div.classList.add("eventCardDiv");
     div.setAttribute("onclick", `window.open('${repo.html_url}')`);
     div.innerHTML = `<sl-card class="card-basic repoCard" style="width: 300px">
-                      <div style="display: flex; align-items: center; cursor: pointer">
+                      <div style="display: flex;cursor: pointer; flex-direction: column">
                         <div>
                           <img src="https://iconsplace.com/wp-content/uploads/_icons/40e0d0/256/png/folder-icon-17-256.png" style="height:25px; margin-right: 1rem"/>
                         </div>
-                        <div>
-                          <h3>${repo.name}</h3>
-                          ${repo.created_at}
+                        <div style="display: flex; flex-wrap: wrap; flex-direction: column">
+                          <h3 class="eventCardTitle">${repo.name}</h3>
+                          <h5 class="dateLabel">${new Date(
+                            Date.parse(repo.created_at)
+                          )}</h5>
                         </div>
                       </div>
                     </sl-card>`;
