@@ -4,6 +4,10 @@ const searchProfile = async () => {
 
   let rawData = await fetch(`https://api.github.com/users/${username}`);
   let response = await rawData.json();
+  if (response.message === "Not Found") {
+    alert("User Not Found");
+    return;
+  }
   infosSection.innerHTML = "";
   let div = document.createElement("div");
   div.classList.add("eventCardDiv");
@@ -32,6 +36,7 @@ const searchProfile = async () => {
   );
   let eventsSection = document.getElementById("events");
   response = await rawData.json();
+  console.log(response);
 
   eventsSection.innerHTML = "";
   response.forEach((event) => {
@@ -72,7 +77,7 @@ const searchProfile = async () => {
                         <div class="cardIcon">
                           <img src="https://iconsplace.com/wp-content/uploads/_icons/40e0d0/256/png/folder-icon-17-256.png" style="height:25px; margin-right: 1rem"/>
                         </div>
-                        <div style="display: flex; flex-wrap: wrap; flex-direction: column">
+                        <div style="display: flex; flex-wrap: nowrap; flex-direction: column">
                           <h3 class="eventCardTitle">${repo.name}</h3>
                           <h5 class="dateLabel">${new Date(
                             Date.parse(repo.created_at)
@@ -85,7 +90,6 @@ const searchProfile = async () => {
 
   rawData = await fetch(`https://api.github.com/users/${username}/followers`);
   response = await rawData.json();
-  console.log(response);
   let followersSection = document.getElementById("followers");
   followersSection.innerHTML = "";
   response.forEach((follower) => {
@@ -94,9 +98,9 @@ const searchProfile = async () => {
     div.setAttribute("onclick", `window.open('${follower.html_url}')`);
     div.innerHTML = `<sl-card class="card-basic repoCard" style="width: 300px">
                       <div style="display: flex; align-items: center; cursor: pointer">
-                        <img src=${follower.avatar_url} style="height:50px; margin-right: 1rem;border-radius: 50%"/>
-                        <div style="display: flex; flex-wrap: wrap; flex-direction: column">
-                          <h3>${follower.login}</h3>
+                        <img src=${follower.avatar_url} style="height:45px; margin-right: 1rem;border-radius: 50%"/>
+                        <div style="display: flex; flex-wrap: wrap; overflow: hidden">
+                          <h3 style="font-size: 1.25rem; color: rgba(0,0,0,0.75); text-overflow: ellipsis; overflow: hidden; white-space: nowrap">${follower.login}</h3>
                         </div>
                       </div>
                     </sl-card>`;

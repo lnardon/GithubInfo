@@ -57,6 +57,14 @@ body {
 #profilePic {
   display: none;
   max-width: 90%;
+  border-radius: 50%;
+}
+
+#userName {
+  font-size: 3rem;
+  line-height: 3rem;
+  margin: 2rem 0rem 1rem 0rem;
+  text-align: center;
 }
 
 .eventCardDiv {
@@ -94,6 +102,7 @@ body {
   line-height: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
+  overflow-wrap: break-word;
 }
 
 .eventType {
