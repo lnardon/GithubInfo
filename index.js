@@ -1,7 +1,12 @@
 const searchProfile = async () => {
-  let infosSection = document.getElementById("infos");
-  let username = document.getElementById("user").value;
+  const tabsgroup = document.getElementById("tabGroup");
+  const infosSection = document.getElementById("infos");
+  const eventsSection = document.getElementById("events");
+  const reposSection = document.getElementById("repos");
+  const followersSection = document.getElementById("followers");
+  const username = document.getElementById("user").value;
 
+  //USER INFO
   let rawData = await fetch(`https://api.github.com/users/${username}`);
   let response = await rawData.json();
   if (response.message === "Not Found") {
@@ -31,18 +36,16 @@ const searchProfile = async () => {
   }
   document.getElementById("userName").innerText = response.name;
 
+  //EVENTS
   rawData = await fetch(
     `https://api.github.com/users/${username}/events/public`
   );
-  let eventsSection = document.getElementById("events");
   response = await rawData.json();
-  console.log(response);
-
   eventsSection.innerHTML = "";
   response.forEach((event) => {
-    let div = document.createElement("div");
-    let auxreponame = event.repo.name.split("/");
-    let reponame = auxreponame[auxreponame.length - 1];
+    const div = document.createElement("div");
+    const auxreponame = event.repo.name.split("/");
+    const reponame = auxreponame[auxreponame.length - 1];
     div.classList.add("eventCardDiv");
     div.innerHTML = `<sl-card class="card-basic" style="width: 300px">
                       <div style="display: flex; flex-direction: column">
@@ -63,13 +66,12 @@ const searchProfile = async () => {
     eventsSection.appendChild(div);
   });
 
+  //REPOS
   rawData = await fetch(`https://api.github.com/users/${username}/repos`);
   response = await rawData.json();
-
-  let reposSection = document.getElementById("repos");
   reposSection.innerHTML = "";
   response.forEach((repo) => {
-    let div = document.createElement("div");
+    const div = document.createElement("div");
     div.classList.add("eventCardDiv");
     div.setAttribute("onclick", `window.open('${repo.html_url}')`);
     div.innerHTML = `<sl-card class="card-basic repoCard" style="width: 300px">
@@ -88,12 +90,12 @@ const searchProfile = async () => {
     reposSection.appendChild(div);
   });
 
+  //FOLLOWERS
   rawData = await fetch(`https://api.github.com/users/${username}/followers`);
   response = await rawData.json();
-  let followersSection = document.getElementById("followers");
   followersSection.innerHTML = "";
   response.forEach((follower) => {
-    let div = document.createElement("div");
+    const div = document.createElement("div");
     div.classList.add("eventCardDiv");
     div.setAttribute("onclick", `window.open('${follower.html_url}')`);
     div.innerHTML = `<sl-card class="card-basic repoCard" style="width: 300px">
@@ -106,4 +108,6 @@ const searchProfile = async () => {
                     </sl-card>`;
     followersSection.appendChild(div);
   });
+
+  tabsgroup.style.display = "flex";
 };
