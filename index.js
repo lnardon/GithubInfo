@@ -4,11 +4,13 @@ const searchProfile = async () => {
 
   let rawData = await fetch(`https://api.github.com/users/${username}`);
   let response = await rawData.json();
-  console.log(response);
   infosSection.innerHTML = "";
   let div = document.createElement("div");
   div.classList.add("eventCardDiv");
   div.innerHTML = `<sl-card class="card-basic repoCard" style="width: 300px">
+                      <div class="cardIcon">
+                        <img src="./user.png" style="height:25px; margin-right: 1rem"/>
+                      </div>
                       <div style="display: flex; align-items: center; cursor: pointer">
                         Bio: ${response.bio}</br>
                         Followers: ${response.followers}</br>
@@ -39,7 +41,7 @@ const searchProfile = async () => {
     div.classList.add("eventCardDiv");
     div.innerHTML = `<sl-card class="card-basic" style="width: 300px">
                       <div style="display: flex; flex-direction: column">
-                        <div>
+                        <div class="cardIcon">
                           <img src="https://wac-cdn.atlassian.com/dam/jcr:8da54c66-2109-41df-af77-b575b30e2edc/Git@2x.png?cdnVersion=1032" style="height:25px; margin-right: 1rem"/>
                         </div>
                         <div class="eventCardTextDiv">
@@ -58,7 +60,6 @@ const searchProfile = async () => {
 
   rawData = await fetch(`https://api.github.com/users/${username}/repos`);
   response = await rawData.json();
-  // console.log(response);
 
   let reposSection = document.getElementById("repos");
   reposSection.innerHTML = "";
@@ -68,7 +69,7 @@ const searchProfile = async () => {
     div.setAttribute("onclick", `window.open('${repo.html_url}')`);
     div.innerHTML = `<sl-card class="card-basic repoCard" style="width: 300px">
                       <div style="display: flex;cursor: pointer; flex-direction: column">
-                        <div>
+                        <div class="cardIcon">
                           <img src="https://iconsplace.com/wp-content/uploads/_icons/40e0d0/256/png/folder-icon-17-256.png" style="height:25px; margin-right: 1rem"/>
                         </div>
                         <div style="display: flex; flex-wrap: wrap; flex-direction: column">
@@ -80,5 +81,25 @@ const searchProfile = async () => {
                       </div>
                     </sl-card>`;
     reposSection.appendChild(div);
+  });
+
+  rawData = await fetch(`https://api.github.com/users/${username}/followers`);
+  response = await rawData.json();
+  console.log(response);
+  let followersSection = document.getElementById("followers");
+  followersSection.innerHTML = "";
+  response.forEach((follower) => {
+    let div = document.createElement("div");
+    div.classList.add("eventCardDiv");
+    div.setAttribute("onclick", `window.open('${follower.html_url}')`);
+    div.innerHTML = `<sl-card class="card-basic repoCard" style="width: 300px">
+                      <div style="display: flex; align-items: center; cursor: pointer">
+                        <img src=${follower.avatar_url} style="height:50px; margin-right: 1rem;border-radius: 50%"/>
+                        <div style="display: flex; flex-wrap: wrap; flex-direction: column">
+                          <h3>${follower.login}</h3>
+                        </div>
+                      </div>
+                    </sl-card>`;
+    followersSection.appendChild(div);
   });
 };

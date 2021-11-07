@@ -72,6 +72,10 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.cardIcon {
+  margin-bottom: 0.5rem;
+}
+
 .eventCardTextDiv {
   display: -webkit-box;
   display: -ms-flexbox;
