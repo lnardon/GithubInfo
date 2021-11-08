@@ -20,11 +20,11 @@ const searchProfile = async () => {
     alert("User Not Found");
     return;
   }
-  let div = document.createElement("div");
+  const div = document.createElement("div");
   div.classList.add("eventCardDiv");
   div.innerHTML = `<sl-card class="card-basic card">
                       <div class="cardIcon">
-                        <img src="./user.png" class="cardIcon"/>
+                        <img src="./assets/user.png" class="cardIcon"/>
                       </div>
                       <div class="bioTextContainer">
                         <div class="bioInfoTextDiv">
@@ -62,7 +62,7 @@ const searchProfile = async () => {
     div.innerHTML = `<sl-card class="card-basic card">
                       <div style="display: flex; flex-direction: column">
                         <div class="cardIcon">
-                          <img src="https://wac-cdn.atlassian.com/dam/jcr:8da54c66-2109-41df-af77-b575b30e2edc/Git@2x.png?cdnVersion=1032" class="cardIcon"/>
+                          <img src="./assets/git.png" class="cardIcon"/>
                         </div>
                         <div class="eventCardTextDiv">
                           <h3 class="eventCardTitle">
@@ -88,7 +88,7 @@ const searchProfile = async () => {
     div.innerHTML = `<sl-card class="card-basic card">
                       <div style="display: flex;cursor: pointer; flex-direction: column">
                         <div class="cardIcon">
-                          <img src="https://iconsplace.com/wp-content/uploads/_icons/40e0d0/256/png/folder-icon-17-256.png" class="cardIcon"/>
+                          <img src="./assets/folder.png" class="cardIcon"/>
                         </div>
                         <div style="display: flex; flex-wrap: nowrap; flex-direction: column">
                           <h3 class="eventCardTitle">${repo.name}</h3>
