@@ -1,4 +1,4 @@
-# Github Stats
+# Github Info
 
 Check out an user info about last events, repos, followers, and more.
 
@@ -6,7 +6,7 @@ Check out an user info about last events, repos, followers, and more.
   <img src="./demo.gif">
 </p>
 
-Access the link [here](https://lnardon.github.io/GithubStats/ "Homepage") and write the username to see all the stats about the account.
+Access the link [here](https://lnardon.github.io/GithubInfo/ "Homepage") and write the username to see all the stats about the account.
 
 ### What I Used on this project
 
