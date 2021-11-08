@@ -1,6 +1,6 @@
 # Github Info
 
-Check out an user info about last events, repos, followers, and more.
+Check out user info about last events, repos, followers, and more.
 
 <p align="center">
   <img src="./demo.gif">
