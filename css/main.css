@@ -14,15 +14,13 @@ body {
 
 .searchContainer {
   display: flex;
+  justify-content: center;
+  margin: 2rem 0rem;
 }
 
 .searchField {
   width: 90%;
-  margin: 1rem 1rem 0.5rem 0rem;
-}
-
-.searchBtn {
-  margin: 1rem 0rem 2rem 0rem;
+  margin-right: 1rem;
 }
 
 .mainContainer {
@@ -67,6 +65,14 @@ body {
   text-align: center;
 }
 
+#tabGroup {
+  display: none;
+}
+
+.card {
+  width: 300px;
+}
+
 .eventCardDiv {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -82,6 +88,7 @@ body {
 
 .cardIcon {
   margin-bottom: 0.5rem;
+  height: 25px;
 }
 
 .eventCardTextDiv {
@@ -118,5 +125,42 @@ body {
   font-size: 0.75rem;
   line-height: 0.75rem;
   color: #999999;
+}
+
+.bioTextContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.bioInfoTextDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bioData {
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 500;
+}
+
+.followerAvatar {
+  height: 45px;
+  margin-right: 1rem;
+  border-radius: 50%;
+}
+
+.followerText {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.followerName {
+  font-size: 1.25rem;
+  color: rgba(0, 0, 0, 0.75);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 /*# sourceMappingURL=main.css.map */
