@@ -1,14 +1,14 @@
-# A basic github status verification/gamification
+# Github Stats
 
-I decided to use this project also to learn Sass
+Check out an user info about last events, repos, followers, and more.
 
 <p align="center">
   <img src="./demo.gif">
 </p>
 
-## Access the link [here](https://lnardon.github.io/GithubStats/ "Homepage") and write the username to see all the stats about the account
+Access the link [here](https://lnardon.github.io/GithubStats/ "Homepage") and write the username to see all the stats about the account.
 
-### What I Learned/Used on this project
+### What I Used on this project
 
 - Sass
 - Async/Await
